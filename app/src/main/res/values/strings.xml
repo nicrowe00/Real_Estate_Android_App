@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Estates</string>
+    <string name="button_addestate">Add estate</string>
+    <string name="hint_estateName">Name</string>
+    <string name="hint_estatePhoneNumber">Phone Number</string>
+    <string name="hint_estateType">Type</string>
+    <string name="hint_estateAddress">Address</string>
+    <string name="hint_estateCity">City</string>
+    <string name="hint_estateCounty">County</string>
+    <string name="hint_estateEircode">Eircode</string>
+    <string name="hint_estateEstimated">Estimated Value</string>
+    <string name="hint_estateResidents">Estimated Residents</string>
+    <string name="menu_addEstate">Add</string>
+    <string name="menu_cancelEstate">Cancel</string>
+    <string name="enter_estate_title"> Please enter a estate Title </string>
+    <string name="save_estate"> Save Estate </string>
+    <string name="button_addImage"> Add Image </string>
+    <string name="select_estate_image">Select estate image</string>
+    <string name="change_estate_image">Change estate image</string>
+    <string name="button_location">Set Location</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="menu_deleteEstate">Delete</string>
+    <string name="title_activity_estate_maps">Map of All Estates </string>
+</resources>
