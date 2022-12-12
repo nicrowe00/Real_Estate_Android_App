@@ -1,6 +1,5 @@
 package org.wit.estate.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -24,6 +23,7 @@ class EstateMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         binding = ActivityEstateMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -84,6 +84,7 @@ class EstateMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener 
         when (item.itemId) {
             R.id.item_back -> {
                 finish()
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             }
         }
         return super.onOptionsItemSelected(item)
