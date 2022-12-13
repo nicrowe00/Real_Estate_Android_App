@@ -183,7 +183,7 @@
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/estimated"/>
+                    app:layout_constraintTop_toBottomOf="@+id/estimated" />
 
                 <Button
                     android:id="@+id/btnAdd"
@@ -203,10 +203,10 @@
 
                 <Button
                     android:id="@+id/estateLocation"
-                    android:layout_width="163dp"
-                    android:layout_height="49dp"
+                    android:layout_width="179dp"
+                    android:layout_height="54dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="11dp"
                     android:background="@color/colorAccent"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
@@ -219,10 +219,10 @@
 
                 <Button
                     android:id="@+id/chooseImage"
-                    android:layout_width="163dp"
-                    android:layout_height="49dp"
+                    android:layout_width="179dp"
+                    android:layout_height="54dp"
+                    android:layout_marginLeft="11dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="16dp"
                     android:background="@color/colorAccent"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
@@ -236,7 +236,7 @@
                     android:id="@+id/estateImage"
                     android:layout_width="411dp"
                     android:layout_height="270dp"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginTop="156dp"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnAdd" />

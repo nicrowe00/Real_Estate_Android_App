@@ -7,7 +7,6 @@
         android:title="@string/menu_cancelEstate"
         app:showAsAction="always" />
     <item
-        android:visible="false"
         android:id="@+id/item_delete"
         android:title="@string/menu_deleteEstate"
         app:showAsAction="always"/>
