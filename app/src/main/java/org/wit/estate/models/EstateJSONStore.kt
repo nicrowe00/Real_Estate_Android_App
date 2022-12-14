@@ -20,7 +20,6 @@ fun generateRandomId(): Long {
 }
 
 class EstateJSONStore(private val context: Context) : EstateStore {
-
     var estates = mutableListOf<EstateModel>()
 
     init {
@@ -73,6 +72,11 @@ class EstateJSONStore(private val context: Context) : EstateStore {
 
     override fun delete(estate: EstateModel) {
         estates.remove(estate)
+        serialize()
+    }
+
+    fun deleteAll(){
+        estates.removeAll(estates)
         serialize()
     }
 

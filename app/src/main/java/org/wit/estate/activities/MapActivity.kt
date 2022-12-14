@@ -1,6 +1,7 @@
 package org.wit.estate.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -24,6 +25,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var map: GoogleMap
     private lateinit var binding: EstateMapBinding
     private var location = Location()
+    private lateinit var sharedPreferences : SharedPreferences
+    private var switchCheck: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,8 +80,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_maps, menu)
-        return true
+        sharedPreferences = getSharedPreferences("org.wit.estate", MODE_PRIVATE)
+        switchCheck = sharedPreferences.getBoolean("switch_status", false)
+        return if(switchCheck){
+            menuInflater.inflate(R.menu.dark_menu_back, menu)
+            return true
+        } else {
+            menuInflater.inflate(R.menu.menu_back, menu)
+            return true
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

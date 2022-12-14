@@ -19,4 +19,8 @@
     <string name="change_estate_image">Change image</string>
     <string name="button_location">Set Location</string>
     <string name="menu_deleteEstate">Delete</string>
+    <string name="button_delete_all_estates">Delete All Estates</string>
+    <string name="switch_dark_mode">Dark Mode</string>
+    <string name="settings">Settings</string>
+    <string name="map_of_all_estates">Map of all Estates</string>
 </resources>

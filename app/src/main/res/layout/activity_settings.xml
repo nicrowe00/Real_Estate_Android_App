@@ -20,14 +20,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+       >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layoutDirection="rtl"
-            app:titleTextColor="@color/colorPrimary">
+            android:layoutDirection="rtl">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/settings"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -35,13 +42,14 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchtheme"
-        android:layout_width="wrap_content"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="8dp"
         android:layout_gravity="center"
-        android:text="Switch Theme"
+        android:text="@string/switch_dark_mode"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appBarLayout" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

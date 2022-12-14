@@ -7,13 +7,8 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    </style>
-
-    <style name="Theme.estate.darkTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">#000</item>
-        <item name="colorPrimaryDark">#000</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="backgroundColor">#131313</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.estate.NoActionBar">

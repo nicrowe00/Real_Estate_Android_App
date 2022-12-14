@@ -5,12 +5,12 @@
     <item
         android:id="@+id/item_delete"
         android:title="@string/menu_deleteEstate"
-        android:icon="@drawable/dark_ic_baseline_delete_24"
+        android:icon="@drawable/ic_baseline_delete_24"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/item_cancel"
         android:title="Cancel"
-        android:icon="@drawable/dark_ic_baseline_cancel_24"
+        android:icon="@drawable/ic_baseline_cancel_24"
         app:showAsAction="always" />
 </menu>

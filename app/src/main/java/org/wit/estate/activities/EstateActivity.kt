@@ -2,6 +2,7 @@ package org.wit.estate.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
@@ -9,6 +10,7 @@ import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.estate.R
@@ -27,6 +29,8 @@ class EstateActivity : AppCompatActivity() {
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var edit = false
+    private lateinit var sharedPreferences : SharedPreferences
+    private var switchCheck: Boolean = false
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,9 +116,17 @@ class EstateActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_estate, menu)
-        if (edit) menu.getItem(0).isVisible = true
-        return super.onCreateOptionsMenu(menu)
+        sharedPreferences = getSharedPreferences("org.wit.estate", MODE_PRIVATE)
+        switchCheck = sharedPreferences.getBoolean("switch_status", false)
+        return if(switchCheck){
+            menuInflater.inflate(R.menu.dark_menu_estate, menu)
+            if (edit) menu.getItem(0).isVisible = true
+            super.onCreateOptionsMenu(menu)
+        } else {
+            menuInflater.inflate(R.menu.menu_estate, menu)
+            if (edit) menu.getItem(0).isVisible = true
+            super.onCreateOptionsMenu(menu)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
