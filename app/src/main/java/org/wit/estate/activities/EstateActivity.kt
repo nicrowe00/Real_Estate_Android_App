@@ -1,6 +1,5 @@
 package org.wit.estate.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -10,7 +9,6 @@ import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.estate.R
@@ -20,6 +18,8 @@ import org.wit.estate.models.Location
 import org.wit.estate.models.EstateModel
 import org.wit.estate.showImagePicker
 import timber.log.Timber.i
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 class EstateActivity : AppCompatActivity() {
 
@@ -32,7 +32,8 @@ class EstateActivity : AppCompatActivity() {
     private lateinit var sharedPreferences : SharedPreferences
     private var switchCheck: Boolean = false
 
-    @SuppressLint("SetTextI18n")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,20 +46,25 @@ class EstateActivity : AppCompatActivity() {
 
         app = application as MainApp
 
-        i("PEstate Activity started...")
+        var spinnerTypes: Spinner = findViewById(R.id.type)
+        var adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(this, R.array.types, android.R.layout.simple_spinner_item)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        spinnerTypes.adapter = adapter
+
+        i("Estate Activity started...")
 
         if (intent.hasExtra("estate_edit")) {
             edit = true
             estate = intent.extras?.getParcelable("estate_edit")!!
             binding.name.setText(estate.name)
-            binding.phonenumber.setText(Integer.toString(estate.phonenumber))
-            binding.type.setText(estate.type)
+            binding.phonenumber.setText(String.format(estate.phonenumber.toString()))
             binding.address.setText(estate.address)
             binding.city.setText(estate.city)
             binding.county.setText(estate.county)
             binding.eircode.setText(estate.eircode)
-            binding.estimated.setText(Integer.toString(estate.estimated))
-            binding.residents.setText(Integer.toString(estate.residents))
+            binding.estimated.setText(String.format(estate.estimated.toString()))
+            binding.residents.setText(String.format(estate.residents.toString()))
             binding.btnAdd.setText(R.string.save_estate)
             Picasso.get()
                 .load(estate.image)
@@ -66,13 +72,39 @@ class EstateActivity : AppCompatActivity() {
             if (estate.image != Uri.EMPTY) {
                 binding.chooseImage.setText(R.string.change_estate_image)
             }
+            when (estate.type) {
+                "Detached House" -> {
+                    binding.type.setSelection(1)
+                }
+                "Semi-Detached House" -> {
+                    binding.type.setSelection(2)
+                }
+                "Terraced House" -> {
+                    binding.type.setSelection(3)
+                }
+                "Apartment" -> {
+                    binding.type.setSelection(4)
+                }
+                "Bungalow" -> {
+                    binding.type.setSelection(5)
+                }
+                "Condominium" -> {
+                    binding.type.setSelection(6)
+                }
+                "Mansion" -> {
+                    binding.type.setSelection(7)
+                }
+                "Villa" -> {
+                    binding.type.setSelection(8)
+                }
+            }
 
         }
 
         binding.btnAdd.setOnClickListener() {
             estate.name = binding.name.text.toString()
             estate.phonenumber = binding.phonenumber.text.toString().toInt()
-            estate.type = binding.type.text.toString()
+            estate.type = binding.type.selectedItem.toString()
             estate.address = binding.address.text.toString()
             estate.city = binding.city.text.toString()
             estate.county = binding.county.text.toString()
@@ -82,6 +114,10 @@ class EstateActivity : AppCompatActivity() {
             if (estate.name.isEmpty()) {
                 Snackbar.make(it,R.string.enter_estate_title, Snackbar.LENGTH_LONG)
                         .show()
+            }
+            else if (estate.type == "House Type") {
+                Snackbar.make(it, R.string.enter_estate_type, Snackbar.LENGTH_LONG)
+                    .show()
             } else {
                 if (edit) {
                     app.estates.update(estate.copy())
