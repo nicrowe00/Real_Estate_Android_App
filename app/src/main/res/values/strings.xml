@@ -15,10 +15,25 @@
     <string name="enter_estate_title"> Please enter a estate Title </string>
     <string name="save_estate"> Save Estate </string>
     <string name="button_addImage"> Add Image </string>
-    <string name="select_estate_image">Select estate image</string>
-    <string name="change_estate_image">Change estate image</string>
+    <string name="select_estate_image">Select image</string>
+    <string name="change_estate_image">Change image</string>
     <string name="button_location">Set Location</string>
-    <string name="title_activity_map">MapActivity</string>
     <string name="menu_deleteEstate">Delete</string>
-    <string name="title_activity_estate_maps">Map of All Estates </string>
+    <string name="button_delete_all_estates">Delete All Estates</string>
+    <string name="switch_dark_mode">Dark Mode</string>
+    <string name="settings">Settings</string>
+    <string name="map_of_all_estates">Map of all Estates</string>
+    <string name="enter_estate_type">Please select a valid house type</string>
+    <string-array name="types">
+        <item>House Type</item>
+        <item>Detached House</item>
+        <item>Semi-Detached House</item>
+        <item>Terraced House</item>
+        <item>Apartment</item>
+        <item>Bungalow</item>
+        <item>Condominium</item>
+        <item>Mansion</item>
+        <item>Villa</item>
+    </string-array>
 </resources>
+

@@ -17,36 +17,39 @@
         android:background="@color/colorAccent"
         android:fitsSystemWindows="true"
         app:elevation="0dip"
-        app:layout_constraintBottom_toTopOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+       >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layoutDirection="rtl"
-            >
+            android:layoutDirection="rtl">
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/map_of_all_estates"
+                android:text="@string/settings"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_estate_maps"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchtheme"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center"
+        android:text="@string/switch_dark_mode"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toTopOf="@+id/appBarLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

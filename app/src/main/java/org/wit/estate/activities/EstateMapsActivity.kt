@@ -1,6 +1,6 @@
 package org.wit.estate.activities
 
-import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,9 +21,12 @@ class EstateMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener 
     private lateinit var contentBinding: ContentEstateMapsBinding
     lateinit var map: GoogleMap
     lateinit var app: MainApp
+    private lateinit var sharedPreferences : SharedPreferences
+    private var switchCheck: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         binding = ActivityEstateMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -76,14 +79,22 @@ class EstateMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener 
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_maps, menu)
-        return true
+        sharedPreferences = getSharedPreferences("org.wit.estate", MODE_PRIVATE)
+        switchCheck = sharedPreferences.getBoolean("switch_status", false)
+        return if(switchCheck){
+            menuInflater.inflate(R.menu.dark_menu_back, menu)
+            return true
+        } else {
+            menuInflater.inflate(R.menu.menu_back, menu)
+            return true
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_back -> {
                 finish()
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             }
         }
         return super.onOptionsItemSelected(item)
